@@ -35,9 +35,10 @@ valid = []
 for i, s in enumerate(scores):
     try:
         score = int(s)            # <-- this line crashes on bad strings
+        print(f'Score [{i}]: {score}')
     except ValueError:
         score = f"Skipped bad score '{s}'"
-    print(f'Score [{i}]: {score}')
+        print(f'[index {i}]: {score}')
     if type(score) == int:
         valid.append(score)
 
