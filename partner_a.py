@@ -32,8 +32,11 @@ readings = ['72.1', '68.5', 'N/A', '74.0', 'sensor_error', '69.3']
 valid = []
 
 for i, r in enumerate(readings):
-    temp = float(r)           # <-- this line crashes on bad strings
-    print(f'Reading [{i}]: {temp}')
+    try: 
+        temp = float(r)           # <-- this line crashes on bad strings. float can only work with numbers
+        print(f'Reading [{i}]: {temp}')
+    except ValueError:
+        print(f'Skipped bad reading at: [{i}]: {r}')
     valid.append(temp)
 
 average = sum(valid) / len(valid)
