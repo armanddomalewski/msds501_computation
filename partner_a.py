@@ -36,7 +36,7 @@ for i, r in enumerate(readings):
         temp = float(r)           # <-- this line crashes on bad strings. float can only work with numbers
         print(f'Reading [{i}]: {temp}')
     except ValueError:
-        print(f'Skipped bad reading at: [{i}]: {r}')
+        print(f"[index {i}] Skipped bad reading: '{r}'")
     valid.append(temp)
 
 average = sum(valid) / len(valid)
